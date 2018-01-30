@@ -1,0 +1,8 @@
+node_modules
+.DS_Store
+*.log
+data
+
+src/client/node_modules/
+node_modules/
+data/

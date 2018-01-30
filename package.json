@@ -1,0 +1,21 @@
+{
+  "name": "diaryapp",
+  "version": "1.0.0",
+  "description": "Software of Development with NodeJS, Express, MongoDB",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "Daniel Alejo Alvarez",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "mongojs": "^2.4.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.14.11"
+  }
+}

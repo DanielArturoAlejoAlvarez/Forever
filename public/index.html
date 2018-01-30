@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="diaryApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Diary App</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container" ng-controller="AppCtrl">
+        <div class="row">
+            <div class="col-12 p-4">
+                
+                <h1 class="text-center">@BOOK</h1>
+                <div class="col p-4">
+                    
+                </div>
+
+                <div class="col">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>Actions</th>
+                                    <th>&nbsp;</th>
+                                </tr> 
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input type="text" class="form-control" ng-model="list.name" placeholder="Name..."></td>
+                                    <td><input type="email" class="form-control" ng-model="list.email" placeholder="E-Mail..."></td>
+                                    <td><input type="text" class="form-control" ng-model="list.phone" placeholder="Phone..."></td>
+                                    
+                                    
+                                    <td>
+                                        <button class="btn btn-secondary" ng-click="addContact()"><i class="fa fa-plus" title="ADD" aria-hidden="true"></i></button>
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-info" ng-click="update()"><i class="fa fa-retweet" title="UPDATE" aria-hidden="true"></i></button>
+                                        <button class="btn btn-secondary btn-xs" ng-click="clear()"><i class="fa fa-remove" title="CLEAR" aria-hidden="true"></i></button>
+                                    </td>                                    
+                                </tr>
+                                <tr ng-repeat="list in contactlist">
+                                    <td>{{list.name.toUpperCase()}}</td>
+                                    <td>{{list.email}}</td>
+                                    <td>{{list.phone}}</td>
+                                    
+
+                                    <td><button class="btn btn-danger btn-sm" ng-click="remove(list._id)"><i class="fa fa-trash" title="REMOVE" aria-hidden="true"></i></button></td>
+                                    <td><button class="btn btn-warning btn-sm" ng-click="edit(list._id)"><i class="fa fa-pencil" title="EDIT" aria-hidden="true"></i></button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
+    <script src="controllers/controller.js"></script>
+</body>
+</html>
+
+
+<script>
+    $(function() {
+        tableEffectHoverBG();
+    })
+
+    function tableEffectHoverBG() {
+        $('body').hover(function() {
+            $('table').addClass('table-dark').css({'transition':'all .8s ease-in-out'});
+        }, function() {
+            $('table').removeClass('table-dark');
+        })
+    }
+</script>
